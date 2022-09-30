@@ -19,10 +19,18 @@ const RegisterScreen = () => {
     navigation.navigate("Login");
   };
 
+  const handleCreate = () => {
+    navigation.navigate("DrawerNav");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-        <Ionicons name="chevron-back-circle" size={"30"} color={lightTheme.darkPurple}/>
+        <Ionicons
+          name="chevron-back-circle"
+          size={"30"}
+          color={lightTheme.darkPurple}
+        />
       </TouchableOpacity>
       <Image style={styles.logo} source={require("../../assets/logo.png")} />
 
@@ -33,7 +41,7 @@ const RegisterScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.createButton}>
+        <TouchableOpacity style={styles.createButton} onPress={handleCreate}>
           <Text style={styles.buttonText}>Create Account</Text>
         </TouchableOpacity>
       </View>

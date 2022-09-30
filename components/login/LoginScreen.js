@@ -18,6 +18,10 @@ const LoginScreen = () => {
     navigation.navigate("Register");
   };
 
+  const handleLogin = () => {
+    navigation.navigate("DrawerNav");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={require("../../assets/logo.png")} />
@@ -28,7 +32,10 @@ const LoginScreen = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.button, styles.loginButton]}>
+        <TouchableOpacity
+          style={[styles.button, styles.loginButton]}
+          onPress={handleLogin}
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.registerPrompt}>Don't have an account?</Text>

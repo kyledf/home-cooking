@@ -13,7 +13,10 @@ const ProfileScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topContainer}>
-        <TouchableOpacity style={styles.menuButton}>
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.toggleDrawer()}
+        >
           <Ionicons name="menu" size={45} color={lightTheme.background} />
         </TouchableOpacity>
       </View>
