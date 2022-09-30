@@ -28,7 +28,8 @@ const DrawerNav = () => {
         drawerInactiveTintColor: lightTheme.background,
         drawerActiveBackgroundColor: lightTheme.maroon,
         drawerLabelStyle: {
-          fontSize: 25,
+          textAlign: "right",
+          fontSize: 30,
           fontWeight: "bold",
         },
       }}
@@ -38,34 +39,7 @@ const DrawerNav = () => {
         component={FeedScreen}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="grid" size={24} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Profile"
-        component={ProfileScreen}
-        options={{
-          drawerIcon: ({ color }) => (
-            <Ionicons name="person" size={24} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="History"
-        component={HistoryScreen}
-        options={{
-          drawerIcon: ({ color }) => (
-            <Ionicons name="time" size={24} color={color} />
-          ),
-        }}
-      />
-      <Drawer.Screen
-        name="Messages"
-        component={MessagesScreen}
-        options={{
-          drawerIcon: ({ color }) => (
-            <Ionicons name="chatbubbles" size={24} color={color} />
+            <Ionicons name="grid" size={30} color={color} />
           ),
         }}
       />
@@ -74,7 +48,34 @@ const DrawerNav = () => {
         component={SellScreen}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="cart" size={24} color={color} />
+            <Ionicons name="cart" size={30} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="History"
+        component={HistoryScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="time" size={30} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Messages"
+        component={MessagesScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="chatbubbles" size={30} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="person" size={30} color={color} />
           ),
         }}
       />
@@ -83,7 +84,7 @@ const DrawerNav = () => {
         component={SettingsScreen}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="settings" size={24} color={color} />
+            <Ionicons name="settings" size={30} color={color} />
           ),
         }}
       />

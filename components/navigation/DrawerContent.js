@@ -6,8 +6,15 @@ import {
   DrawerItemList,
 } from "@react-navigation/drawer";
 import { lightTheme } from "../../themes/themes";
+import { useNavigation } from "@react-navigation/native";
 
 const DrawerContent = (props) => {
+  const navigation = useNavigation();
+
+  const handleLogOut = () => {
+    navigation.navigate("Login");
+  };
+
   return (
     <DrawerContentScrollView
       style={styles.container}
@@ -25,6 +32,12 @@ const DrawerContent = (props) => {
         <Text style={styles.title}>Home{"\n"}Meals</Text>
       </View>
       <DrawerItemList {...props} />
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.signOutButton} onPress={handleLogOut}>
+          <Ionicons name="log-out" size={25} color={lightTheme.background} />
+          <Text style={styles.footerText}>Sign Out</Text>
+        </TouchableOpacity>
+      </View>
     </DrawerContentScrollView>
   );
 };
@@ -57,6 +70,29 @@ const styles = StyleSheet.create({
     width: 100,
     height: undefined,
     aspectRatio: 1,
+  },
+  footer: {
+    position: "absolute",
+    top: "170%",
+    left: 0,
+    right: 0,
+    height: "25%",
+    backgroundColor: lightTheme.lightPurple,
+    flexDirection: "row",
+    alignItems: "center",
+    paddingLeft: "5%",
+  },
+  signOutButton: {
+    width: "100%",
+    height: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  footerText: {
+    color: lightTheme.background,
+    fontSize: 20,
+    fontWeight: "bold",
+    marginLeft: 10,
   },
 });
 
