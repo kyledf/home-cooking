@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: lightTheme.darkPurple,
   },
   header: {
-    height: "100%",
+    height: "30%",
   },
   closeButton: {
     position: "absolute",
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    bottom: 20,
+    bottom: "5%",
     color: lightTheme.background,
     left: "15%",
     fontSize: 35,

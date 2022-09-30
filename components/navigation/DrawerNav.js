@@ -1,6 +1,10 @@
 import React from "react";
 import FeedScreen from "../feed/FeedScreen";
 import ProfileScreen from "../profile/ProfileScreen";
+import HistoryScreen from "../history/HistoryScreen";
+import MessagesScreen from "../message/MessagesScreen";
+import SellScreen from "../sell/SellScreen";
+import SettingsScreen from "../settings/SettingsScreen";
 import DrawerContent from "./DrawerContent";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { lightTheme } from "../../themes/themes";
@@ -34,7 +38,7 @@ const DrawerNav = () => {
         component={FeedScreen}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="ios-home" size={24} color={color} />
+            <Ionicons name="grid" size={24} color={color} />
           ),
         }}
       />
@@ -43,7 +47,43 @@ const DrawerNav = () => {
         component={ProfileScreen}
         options={{
           drawerIcon: ({ color }) => (
-            <Ionicons name="ios-person" size={24} color={color} />
+            <Ionicons name="person" size={24} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="History"
+        component={HistoryScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="time" size={24} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Messages"
+        component={MessagesScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="chatbubbles" size={24} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Sell"
+        component={SellScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="cart" size={24} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="settings" size={24} color={color} />
           ),
         }}
       />
