@@ -9,12 +9,19 @@ import {
   Image,
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
+  const navigation = useNavigation();
+
+  const handleRegister = () => {
+    navigation.navigate("Register");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={require("../../assets/logo.png")} />
-     
+
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Username" />
         <TextInput style={styles.input} placeholder="Password" />
@@ -25,7 +32,10 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <Text style={styles.registerPrompt}>Don't have an account?</Text>
-        <TouchableOpacity style={[styles.button, styles.registerButton]}>
+        <TouchableOpacity
+          style={[styles.button, styles.registerButton]}
+          onPress={handleRegister}
+        >
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>
@@ -40,8 +50,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: lightTheme.background,
   },
+  logo: {
+    position: "absolute",
+    top: "20%",
+    width: "50%",
+    height: undefined,
+    aspectRatio: 1,
+  },
   inputContainer: {
-    top: "8%",
+    position: "absolute",
+    top: "55%",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -57,12 +75,12 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   buttonContainer: {
+    position: "absolute",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    top: "25%",
+    top: "80%",
   },
-
   button: {
     display: "flex",
     justifyContent: "center",
