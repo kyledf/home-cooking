@@ -1,6 +1,6 @@
 import LoginScreen from "./components/login/LoginScreen";
 import RegisterScreen from "./components/register/RegisterScreen";
-import DrawerNav from "./components/DrawerNav";
+import DrawerNav from "./components/navigation/DrawerNav";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
