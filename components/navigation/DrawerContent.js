@@ -16,8 +16,8 @@ const DrawerContent = (props) => {
   };
 
   return (
+    <View style={styles.container}>
     <DrawerContentScrollView
-      style={styles.container}
       scrollEnabled={false}
       {...props}
     >
@@ -32,13 +32,14 @@ const DrawerContent = (props) => {
         <Text style={styles.title}>Home{"\n"}Meals</Text>
       </View>
       <DrawerItemList {...props} />
-      <View style={styles.footer}>
+    </DrawerContentScrollView>
+    <View style={styles.footer}>
         <TouchableOpacity style={styles.signOutButton} onPress={handleLogOut}>
           <Ionicons name="log-out" size={25} color={lightTheme.background} />
           <Text style={styles.footerText}>Sign Out</Text>
         </TouchableOpacity>
       </View>
-    </DrawerContentScrollView>
+    </View>
   );
 };
 
@@ -73,10 +74,10 @@ const styles = StyleSheet.create({
   },
   footer: {
     position: "absolute",
-    top: "170%",
+    bottom: 0,
     left: 0,
     right: 0,
-    height: "25%",
+    height: "10%",
     backgroundColor: lightTheme.lightPurple,
     flexDirection: "row",
     alignItems: "center",

@@ -73,11 +73,11 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "70%",
-    height: 45,
+    height: "40%",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: lightTheme.lightPurple,
-    marginTop: 15,
+    marginTop: "5%",
     padding: 10,
     backgroundColor: "white",
   },
@@ -94,7 +94,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: "40%",
     borderRadius: 10,
-    marginTop: 15,
     padding: 13,
   },
   loginButton: {
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
   },
   registerButton: {
     backgroundColor: lightTheme.maroon,
-    marginTop: 5,
   },
   buttonText: {
     color: lightTheme.background,
@@ -113,7 +111,7 @@ const styles = StyleSheet.create({
     color: lightTheme.maroon,
     fontWeight: "800",
     fontSize: 16,
-    marginTop: 35,
+    marginTop: "5%",
   },
 });
 
