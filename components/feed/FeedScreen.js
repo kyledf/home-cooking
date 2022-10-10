@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     top: 0,
-    height: "18%",
+    height: 150,
     width: "100%",
     backgroundColor: lightTheme.darkPurple,
   },
@@ -120,11 +120,13 @@ const styles = StyleSheet.create({
     left: "5%",
   },
   scrollContainer: {
-    top: "18%",
     width: "100%",
+    height: "100%",
+    marginTop: 150,
   },
   mealContainer: {
     width: "95%",
+    height: 400,
     backgroundColor: lightTheme.darkPurple,
     marginTop: "5%",
     marginBottom: "5%",
