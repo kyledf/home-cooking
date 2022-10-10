@@ -50,7 +50,7 @@ const mealInfo = [
 
 const FeedScreen = ({ navigation }) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.topContainer}>
         <TouchableOpacity
           style={styles.menuButton}
@@ -71,12 +71,12 @@ const FeedScreen = ({ navigation }) => {
             ></Image>
             <View style={styles.mealInfo}>
               <Text style={styles.mealName}>{meal.name}</Text>
-              <Text style={styles.mealLocation}>
-                Pick Up Location: {meal.location}
-              </Text>
               <Text style={styles.mealPrice}>
                 Price per serving:{" "}
                 {currencyFormat(meal.totalPrice / meal.quantity)}
+              </Text>
+              <Text style={styles.mealLocation}>
+                Pick Up Location: {meal.location}
               </Text>
             </View>
             <View style={styles.buttonContainer}>
@@ -94,7 +94,7 @@ const FeedScreen = ({ navigation }) => {
           </View>
         ))}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: lightTheme.background,
   },
   topContainer: {
     display: "flex",
@@ -119,10 +120,8 @@ const styles = StyleSheet.create({
     left: "5%",
   },
   scrollContainer: {
+    top: "18%",
     width: "100%",
-    height: "100%",
-    marginTop: "18%",
-    backgroundColor: lightTheme.background,
   },
   mealContainer: {
     width: "95%",
