@@ -1,4 +1,3 @@
-import React from "react";
 import {
   SafeAreaView,
   Text,
@@ -9,8 +8,22 @@ import {
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useState } from "react";
 
 const SellScreen = ({ navigation }) => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [location, setLocation] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [price, setPrice] = useState("");
+
+  const handlePost = () => {
+    setTitle("");
+    setDescription("");
+    setLocation("");
+    setQuantity("");
+    setPrice("");
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.topContainer}>
@@ -27,13 +40,38 @@ const SellScreen = ({ navigation }) => {
         <Text style={styles.buttonText}>Add Image</Text>
       </TouchableOpacity>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Title"/>
-        <TextInput style={styles.input} placeholder="Description" />
-        <TextInput style={styles.input} placeholder="Quantity"/>
-        <TextInput style={styles.input} placeholder="Price"/>
-        <TextInput style={styles.input} placeholder="Location"/>
+        <TextInput
+          style={styles.input}
+          placeholder="Title"
+          value={title}
+          onChange={(value) => setTitle(value)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Description"
+          value={description}
+          onChange={(value) => setDescription(value)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Quantity"
+          value={quantity}
+          onChange={(value) => setQuantity(value)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Price"
+          value={price}
+          onChange={(value) => setPrice(value)}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Location"
+          value={location}
+          onChange={(value) => setLocation(value)}
+        />
       </View>
-      <TouchableOpacity style={styles.postButton}>
+      <TouchableOpacity style={styles.postButton} onPress={handlePost}>
         <Text style={styles.postButtonText}>Post Your Meal</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -121,7 +159,6 @@ const styles = StyleSheet.create({
     color: lightTheme.background,
     fontWeight: "bold",
   },
-
 });
 
 export default SellScreen;

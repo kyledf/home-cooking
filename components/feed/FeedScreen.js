@@ -42,7 +42,7 @@ const mealInfo = [
 const FeedScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filterMeals = () => {
+  const filterBySearch = () => {
    return mealInfo.filter((meal) => {
        return meal.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
@@ -68,7 +68,7 @@ const FeedScreen = ({ navigation }) => {
         style={styles.scrollContainer}
         contentContainerStyle={{ alignItems: "center" }}
       >
-        {filterMeals().map(
+        {filterBySearch().map(
           ({ id, image, name, totalPrice, quantity, location }) => (
             <MealCard
               key={id}
