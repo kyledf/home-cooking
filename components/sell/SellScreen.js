@@ -1,5 +1,4 @@
 import {
-  SafeAreaView,
   Text,
   StyleSheet,
   View,
@@ -9,6 +8,7 @@ import {
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useState } from "react";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const SellScreen = ({ navigation }) => {
   const [title, setTitle] = useState("");
@@ -25,7 +25,15 @@ const SellScreen = ({ navigation }) => {
     setPrice("");
   };
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAwareScrollView
+      scrollEnabled={false}
+      style={styles.container}
+      contentContainerStyle={{
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <View style={styles.topContainer}>
         <TouchableOpacity
           style={styles.menuButton}
@@ -74,15 +82,13 @@ const SellScreen = ({ navigation }) => {
       <TouchableOpacity style={styles.postButton} onPress={handlePost}>
         <Text style={styles.postButtonText}>Post Your Meal</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: lightTheme.background,
   },
   topContainer: {
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     color: lightTheme.background,
   },
   inputContainer: {
-    marginTop: "70%",
+    marginTop: "75%",
     width: "80%",
     height: "40%",
     justifyContent: "center",
@@ -136,7 +142,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: "20%",
+    height: "18%",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: lightTheme.lightPurple,

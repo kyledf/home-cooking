@@ -1,15 +1,16 @@
 import React from "react";
 import {
   StyleSheet,
-  SafeAreaView,
   TextInput,
   View,
   TouchableOpacity,
   Text,
   Image,
+  KeyboardAvoidingView,
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import { useNavigation } from "@react-navigation/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -23,7 +24,15 @@ const LoginScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAwareScrollView
+      scrollEnabled={false}
+      style={styles.container}
+      contentContainerStyle={{
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <Image style={styles.logo} source={require("../../assets/logo.png")} />
 
       <View style={styles.inputContainer}>
@@ -46,15 +55,13 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: lightTheme.background,
   },
   logo: {
@@ -86,7 +93,7 @@ const styles = StyleSheet.create({
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
-    top: "80%",
+    top: "78%",
   },
   button: {
     display: "flex",

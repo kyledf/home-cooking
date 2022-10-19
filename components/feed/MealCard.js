@@ -13,8 +13,7 @@ const MealCard = ({image, name, totalPrice, quantity, location}) => {
       <View style={styles.mealInfo}>
         <Text style={styles.mealName}>{name}</Text>
         <Text style={styles.mealPrice}>
-          Price per serving:
-          {currencyFormat(totalPrice / quantity)}
+          Price per serving: {currencyFormat(totalPrice / quantity)}
         </Text>
         <Text style={styles.mealLocation}>Pick Up Location: {location}</Text>
       </View>

@@ -1,7 +1,6 @@
 import React from "react";
 import {
   StyleSheet,
-  SafeAreaView,
   TextInput,
   View,
   TouchableOpacity,
@@ -11,6 +10,7 @@ import {
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -24,7 +24,15 @@ const RegisterScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <KeyboardAwareScrollView
+      scrollEnabled={false}
+      style={styles.container}
+      contentContainerStyle={{
+        height: "100%",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
       <TouchableOpacity style={styles.backButton} onPress={handleBack}>
         <Ionicons
           name="chevron-back-circle"
@@ -45,15 +53,13 @@ const RegisterScreen = () => {
           <Text style={styles.buttonText}>Create Account</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: lightTheme.background,
   },
   backButton: {
