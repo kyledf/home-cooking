@@ -44,8 +44,8 @@ const RegisterScreen = () => {
 
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Username" />
-        <TextInput style={styles.input} placeholder="Password" />
-        <TextInput style={styles.input} placeholder="Confirm Password" />
+        <TextInput style={styles.input} placeholder="Password" secureTextEntry/>
+        <TextInput style={styles.input} placeholder="Confirm Password" secureTextEntry/>
       </View>
 
       <View style={styles.buttonContainer}>

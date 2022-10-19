@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  KeyboardAvoidingView,
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import { useNavigation } from "@react-navigation/native";
@@ -37,7 +36,7 @@ const LoginScreen = () => {
 
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Username" />
-        <TextInput style={styles.input} placeholder="Password" />
+        <TextInput style={styles.input} placeholder="Password" secureTextEntry/>
       </View>
 
       <View style={styles.buttonContainer}>
