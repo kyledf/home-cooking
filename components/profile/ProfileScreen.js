@@ -135,9 +135,9 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     position: "absolute",
-    top: "40%",
+    top: "45%",
     width: "80%",
-    height: "40%",
+    height: "30%",
     justifyContent: "center",
     alignItems: "center",
   },
