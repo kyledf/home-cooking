@@ -1,6 +1,7 @@
 import LoginScreen from "./components/login/LoginScreen";
 import RegisterScreen from "./components/register/RegisterScreen";
 import DrawerNav from "./components/navigation/DrawerNav";
+import ChatScreen from "./components/message/ChatScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -23,6 +24,11 @@ export default function App() {
         <Stack.Screen
           name="DrawerNav"
           component={DrawerNav}
+          options={{ headerShown: false, animationEnabled: false }}
+        />
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
           options={{ headerShown: false, animationEnabled: false }}
         />
       </Stack.Navigator>

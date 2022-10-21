@@ -12,6 +12,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { ScrollView } from "react-native-gesture-handler";
 
 const MessagesScreen = ({ navigation }) => {
+  const handleChat = () => {
+    navigation.navigate("ChatScreen");
+  };
   const messages = [
     {
       id: 1,
@@ -56,7 +59,7 @@ const MessagesScreen = ({ navigation }) => {
       >
         {messages.map((message) => {
           return (
-            <TouchableOpacity style={styles.messageContainer} key={message.id}>
+            <TouchableOpacity style={styles.messageContainer} key={message.id} onPress={handleChat}>
               <Image source={{ uri: message.picture }} style={styles.image} />
               <View style={styles.messageInfo}>
               <Text style={styles.messageName}>{message.name}</Text>
