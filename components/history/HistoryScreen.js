@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
   },
   title: {
     position: "absolute",
-    left: "23%",
     top: "40%",
     textAlign: "center",
     color: lightTheme.background,
