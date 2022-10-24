@@ -9,7 +9,7 @@ import {
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import DatePicker from "react-native-date-picker";
+import RNDateTimePicker from "@react-native-community/datetimepicker";
 
 const PurchaseScreen = ({ navigation }) => {
   const handleBack = () => {
@@ -36,6 +36,7 @@ const PurchaseScreen = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={styles.title}>Purchase</Text>
       </View>
+
       <View style={styles.mealInfo}>
         <Image
           source={{
@@ -53,12 +54,14 @@ const PurchaseScreen = ({ navigation }) => {
       <View style={styles.inputContainer}>
         <View style={styles.innerInputContainer}>
           <TextInput style={styles.innerInput} placeholder="Quantity" />
-          <TouchableOpacity style={styles.inputButton}>
-            <Text style={styles.inputButtonText}>Pick-Up Date</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.inputButton}>
-            <Text style={styles.inputButtonText}>Pick-Up Date</Text>
-          </TouchableOpacity>
+          <View style={styles.pickerContainer}>
+            <Text style={styles.pickerText}>Pick-Up Date and Time</Text>
+            <RNDateTimePicker
+              mode={"datetime"}
+              value={new Date()}
+              style={styles.dateTimePicker}
+            />
+          </View>
         </View>
         <TextInput
           style={styles.input}
@@ -177,18 +180,26 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
   },
-  inputButton: {
+  pickerContainer: {
+    width: "65%",
     height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
     borderRadius: 10,
     borderWidth: 2,
     borderColor: lightTheme.lightPurple,
-    padding: 10,
     backgroundColor: "white",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
-  inputButtonText: {
+  pickerText: {
+    fontSize: 11,
     color: "lightgrey",
+  },
+  dateTimePicker: {
+    width: "95%",
+    height: "65%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   postButton: {
     marginTop: "15%",
