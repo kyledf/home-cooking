@@ -4,11 +4,13 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as ImagePicker from "expo-image-picker";
 
 const ProfileScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("John");
@@ -16,6 +18,19 @@ const ProfileScreen = ({ navigation }) => {
   const [email, setEmail] = useState("john.smith@gmail.com");
   const [phone, setPhone] = useState("0211234567");
   const [password, setPassword] = useState("password");
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
 
   return (
     <KeyboardAwareScrollView
@@ -36,12 +51,12 @@ const ProfileScreen = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={styles.title}>My Profile</Text>
       </View>
-      <TouchableOpacity style={styles.imageButton}>
-        <Ionicons
-          name="person-circle"
-          size={"150%"}
-          color="darkgrey"
-        />
+      <TouchableOpacity style={styles.imageButton} onPress={pickImage}>
+        {image ? (
+          <Image source={{ uri: image }} style={styles.image} />
+        ) : (
+          <Ionicons name="person" size={100} color={lightTheme.background} />
+        )}
       </TouchableOpacity>
       <View style={styles.inputContainer}>
         <Text style={styles.inputLabel}>First Name</Text>
@@ -64,7 +79,7 @@ const ProfileScreen = ({ navigation }) => {
           placeholder="Email"
           value={email}
           keyboardType="email-address"
-          secureTextEntry = {false}
+          secureTextEntry={false}
           onChange={(value) => setEmail(value)}
         />
         <Text style={styles.inputLabel}>Phone</Text>
@@ -73,7 +88,7 @@ const ProfileScreen = ({ navigation }) => {
           placeholder="Phone Number"
           value={phone}
           keyboardType="phone-pad"
-          secureTextEntry = {false}
+          secureTextEntry={false}
           onChange={(value) => setPhone(value)}
         />
         <Text style={styles.inputLabel}>Password</Text>
@@ -127,6 +142,19 @@ const styles = StyleSheet.create({
   imageButton: {
     position: "absolute",
     top: "20%",
+    height: "20%",
+    borderRadius: 99,
+    borderColor: lightTheme.lightPurple,
+    backgroundColor: lightTheme.lightPurple,
+    borderWidth: 2,
+    aspectRatio: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 100,
   },
   buttonText: {
     fontSize: 30,

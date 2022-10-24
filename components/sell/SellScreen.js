@@ -4,11 +4,13 @@ import {
   View,
   TouchableOpacity,
   TextInput,
+  Image,
 } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as ImagePicker from "expo-image-picker";
 
 const SellScreen = ({ navigation }) => {
   const [title, setTitle] = useState("");
@@ -16,6 +18,19 @@ const SellScreen = ({ navigation }) => {
   const [location, setLocation] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
+  const [image, setImage] = useState(null);
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
 
   const handlePost = () => {
     setTitle("");
@@ -23,6 +38,7 @@ const SellScreen = ({ navigation }) => {
     setLocation("");
     setQuantity("");
     setPrice("");
+    setImage(null);
   };
   return (
     <KeyboardAwareScrollView
@@ -43,9 +59,12 @@ const SellScreen = ({ navigation }) => {
         </TouchableOpacity>
         <Text style={styles.title}>Sell a Meal</Text>
       </View>
-      <TouchableOpacity style={styles.imageButton}>
-        <Ionicons name="images" size={"50%"} color={lightTheme.maroon} />
-        <Text style={styles.buttonText}>Add Image</Text>
+      <TouchableOpacity style={styles.imageButton} onPress={pickImage}>
+        {image ? (
+          <Image source={{ uri: image }} style={styles.image} />
+        ) : (
+          <Ionicons name="images" size={"50%"} color={lightTheme.maroon} />
+        )}
       </TouchableOpacity>
       <View style={styles.inputContainer}>
         <TextInput
@@ -121,11 +140,15 @@ const styles = StyleSheet.create({
     top: "20%",
     height: "20%",
     width: "80%",
-    padding: "10%",
     flexDirection: "row",
     backgroundColor: lightTheme.lightPurple,
     borderColor: lightTheme.maroon,
     borderWidth: 4,
+    borderRadius: 10,
+  },
+  image: {
+    height: "100%",
+    width: "100%",
     borderRadius: 10,
   },
   buttonText: {
