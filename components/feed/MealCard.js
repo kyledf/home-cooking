@@ -17,6 +17,9 @@ const MealCard = ({
   const handleChat = () => {
     navigation.navigate("ChatScreen");
   };
+  const handleBuy = () => {
+    navigation.navigate("PurchaseScreen");
+  };
 
   return (
     <View style={styles.mealContainer}>
@@ -37,9 +40,12 @@ const MealCard = ({
             Message Seller
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.button, styles.moreInfoButton]}>
-          <Text style={[styles.buttonText, styles.moreInfoButtonText]}>
-            See More Info
+        <TouchableOpacity
+          style={[styles.button, styles.buyNowButton]}
+          onPress={handleBuy}
+        >
+          <Text style={[styles.buttonText, styles.buyNowButtonText]}>
+            Buy Now
           </Text>
         </TouchableOpacity>
       </View>
@@ -106,16 +112,16 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   messageButton: {
-    backgroundColor: lightTheme.maroon,
-  },
-  moreInfoButton: {
     backgroundColor: lightTheme.background,
   },
-  messageButtonText: {
-    color: lightTheme.background,
+  buyNowButton: {
+    backgroundColor: lightTheme.maroon,
   },
-  moreInfoButtonText: {
+  messageButtonText: {
     color: lightTheme.maroon,
+  },
+  buyNowButtonText: {
+    color: lightTheme.background,
   },
 });
 
