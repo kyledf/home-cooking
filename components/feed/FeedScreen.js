@@ -3,7 +3,7 @@ import { StyleSheet, View, TouchableOpacity, ScrollView } from "react-native";
 import { lightTheme } from "../../themes/themes";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Searchbar } from "react-native-paper";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MealCard from "./MealCard";
 
 const mealInfo = [
@@ -43,8 +43,8 @@ const FeedScreen = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filterBySearch = () => {
-   return mealInfo.filter((meal) => {
-       return meal.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return mealInfo.filter((meal) => {
+      return meal.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
   };
 
@@ -77,6 +77,7 @@ const FeedScreen = ({ navigation }) => {
               totalPrice={totalPrice}
               quantity={quantity}
               location={location}
+              navigation={navigation}
             />
           )
         )}

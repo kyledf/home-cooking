@@ -6,7 +6,12 @@ const currencyFormat = (num) => {
   return "$" + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 };
 
-const MealCard = ({image, name, totalPrice, quantity, location}) => {
+const MealCard = ({image, name, totalPrice, quantity, location, navigation}) => {
+
+  const handleChat = () => {
+    navigation.navigate("ChatScreen");
+  };
+
   return (
     <View style={styles.mealContainer}>
       <Image style={styles.mealImage} source={{ uri: image }}></Image>
@@ -19,7 +24,7 @@ const MealCard = ({image, name, totalPrice, quantity, location}) => {
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={[styles.button, styles.messageButton]}>
-          <Text style={[styles.buttonText, styles.messageButtonText]}>
+          <Text style={[styles.buttonText, styles.messageButtonText]} onPress={handleChat}>
             Message Seller
           </Text>
         </TouchableOpacity>
