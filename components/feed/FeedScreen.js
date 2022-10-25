@@ -69,11 +69,12 @@ const FeedScreen = ({ navigation }) => {
         contentContainerStyle={{ alignItems: "center" }}
       >
         {filterBySearch().map(
-          ({ id, image, name, totalPrice, quantity, location }) => (
+          ({ id, image, name, description, totalPrice, quantity, location }) => (
             <MealCard
               key={id}
               image={image}
               name={name}
+              description={description}
               totalPrice={totalPrice}
               quantity={quantity}
               location={location}

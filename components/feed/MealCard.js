@@ -9,6 +9,7 @@ const currencyFormat = (num) => {
 const MealCard = ({
   image,
   name,
+  description,
   totalPrice,
   quantity,
   location,
@@ -26,6 +27,7 @@ const MealCard = ({
       <Image style={styles.mealImage} source={{ uri: image }}></Image>
       <View style={styles.mealInfo}>
         <Text style={styles.mealName}>{name}</Text>
+        <Text style={styles.mealDescription}>{description}</Text>
         <Text style={styles.mealPrice}>
           Price per serving: {currencyFormat(totalPrice / quantity)}
         </Text>
@@ -56,7 +58,7 @@ const MealCard = ({
 const styles = StyleSheet.create({
   mealContainer: {
     width: "95%",
-    height: 400,
+    height: 420,
     backgroundColor: lightTheme.darkPurple,
     marginTop: "5%",
     marginBottom: "5%",
@@ -77,6 +79,11 @@ const styles = StyleSheet.create({
   mealName: {
     fontSize: 25,
     fontWeight: "bold",
+    color: lightTheme.background,
+  },
+  mealDescription: {
+    fontWeight: "500",
+    fontSize: 14,
     color: lightTheme.background,
   },
   mealLocation: {
