@@ -14,7 +14,7 @@ git clone https://github.com/kyledf/home-cooking.git
 #### Demo App
 * Start application in terminal using```expo start``` or ```npm start```
   * Scan QR code using device camera (IOS) or in Expo Go app (Android) to run on local device
-  * Download Xcode to run IOS simulation on laptop
+  * Download Xcode to run IOS simulation on local computer
 
 ## Dependencies
 ```
